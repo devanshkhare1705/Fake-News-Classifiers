@@ -8,10 +8,10 @@ This project uses decision trees to predict if an article contains real or fake 
 
 Decision trees were used as the approach for prediction in this case. The best parallel for them is a game of '20 Questions' (aka: 'Guess Who'). Just like human players ask questions sequentially to narrow down the answer space to one person, the trees in this case ask for the presence of words in the given headline to predict whether the answer label is fake. 
 
-The fitting process focuses on structuring the tree so that the most informative words are searched for first; this is similar to how humans front-load those questions that eliminate as many options as possible. 'sklearn' methods were used to create and fit the trees in this case. Two different criteria were considered to for the loss to get optimal performance: 'Entropy' and 'Gini Coefficient' loss. 'Tree depth' was treated as a second hyperparameter to optimize for speed and performance. 
+The fitting process focuses on structuring the tree so that the most informative words are searched for first; this is similar to how humans front-load those questions that eliminate as many options as possible. 'sklearn' methods were used to create and fit the trees in this case. Two different split criteria were considered to get optimal performance: 'Entropy' and 'Gini Coefficient'. 'Tree depth' was treated as a second hyperparameter to optimize for speed and performance. 
 
 # Project Results
-The best model in this project had a test accuracy of 77.96%, with a max depth of 100 nodes and the loss set to 'Gini Coefficient'. This feels relatively impressive - I'm not confident that every human can predict the truth of articles with 78% accuracy just based on their headlines. I believe the model's performance can be further improved by:
+The best model in this project had a test accuracy of 77.96%, with a max depth of 100 nodes and the split criteria set to 'Gini Coefficient'. This feels relatively impressive - I'm not confident that every human can predict the truth of articles with 78% accuracy just based on their headlines. I believe the model's performance can be further improved by:
 
 1. Adding other metadata such as the news source to the training dataset. The metadata could be added as a token to the input through helper functions.
 2. Adding more training examples and increasing the maximum depth of the tree. We have to be mindful that more depth will increase inference time of these classifiers though, affecting their usability.
